@@ -3,7 +3,12 @@ guid: c6284f3e8f879fd43b6b5d62a264cd43
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: Sack_04
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -28,7 +33,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.2
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

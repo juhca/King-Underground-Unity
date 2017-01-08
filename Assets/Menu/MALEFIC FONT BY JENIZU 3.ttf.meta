@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: bb44257a1bb6e8c4cae5379543c2770e
+timeCreated: 1483901498
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Malefic Font
+  fontNames:
+  - Malefic Font
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

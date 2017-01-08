@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 40e62744d764aee4b849a297ccc48b2a
+timeCreated: 1483901292
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Supernatural Knight
+  fontNames:
+  - Supernatural Knight
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

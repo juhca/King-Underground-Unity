@@ -12,14 +12,34 @@ public class GoblinCombat : MonoBehaviour {
 
 	private int idx; // index in player enemies list
 	private bool isDead = false;
+	
+    public AudioSource[] sounds;
+    public AudioSource GoblinNoise1;
+    public AudioSource GoblinNoise2;
+    public AudioSource GoblinDeath;
+    public AudioSource GoblinHit;
 
 	void Start () {
+        sounds = GetComponents<AudioSource>();
+        GoblinNoise1 = sounds[0];
+        GoblinNoise2 = sounds[1];
+        GoblinDeath = sounds[2];
+        GoblinHit = sounds[3];
+		
 		player = GameObject.FindWithTag("Player").GetComponent<PlayerCombat>();
 		anim = GetComponent<Animator>();
 		mov = GetComponent<GoblinMovement>();
 	}
 
 	public void EnterCombat() {
+		if(Random.value >= 0.5)
+        {
+            GoblinNoise1.Play();
+        }
+        else
+        {
+            GoblinNoise2.Play();
+        }
 		player.AddEnemy(this);
 	}
 
@@ -38,6 +58,10 @@ public class GoblinCombat : MonoBehaviour {
 		if (health < 0) {
 			HandleDeath();
 		}
+        else
+        {
+            GoblinHit.Play();
+        }
 	}
 
 	public void HitTarget(bool isNear) {
@@ -49,6 +73,7 @@ public class GoblinCombat : MonoBehaviour {
 	private void HandleDeath() {
 		LeaveCombat();
 		isDead = true;
+        GoblinDeath.Play();
 		anim.Play("DIE", -1, 0f);
 	}
 

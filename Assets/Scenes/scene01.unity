@@ -2435,7 +2435,7 @@ Cloth:
   - maxDistance: 3.4028235e+38
     collisionSphereDistance: 3.4028235e+38
   m_CapsuleColliders:
-  - {fileID: 0}
+  - {fileID: 1906676445}
   m_SphereColliders: []
 --- !u!64 &151595824
 MeshCollider:
@@ -7400,7 +7400,8 @@ Cloth:
     collisionSphereDistance: 3.4028235e+38
   - maxDistance: 0.2
     collisionSphereDistance: 3.4028235e+38
-  m_CapsuleColliders: []
+  m_CapsuleColliders:
+  - {fileID: 1906676445}
   m_SphereColliders: []
 --- !u!137 &370701427
 SkinnedMeshRenderer:
@@ -24059,7 +24060,8 @@ Cloth:
     collisionSphereDistance: 3.4028235e+38
   - maxDistance: 3.4028235e+38
     collisionSphereDistance: 3.4028235e+38
-  m_CapsuleColliders: []
+  m_CapsuleColliders:
+  - {fileID: 1906676445}
   m_SphereColliders: []
 --- !u!137 &1082779892
 SkinnedMeshRenderer:
@@ -25937,7 +25939,8 @@ Cloth:
     collisionSphereDistance: 3.4028235e+38
   - maxDistance: 3.4028235e+38
     collisionSphereDistance: 3.4028235e+38
-  m_CapsuleColliders: []
+  m_CapsuleColliders:
+  - {fileID: 1906676445}
   m_SphereColliders: []
 --- !u!137 &1087572648
 SkinnedMeshRenderer:
@@ -32447,7 +32450,8 @@ Cloth:
     collisionSphereDistance: 3.4028235e+38
   - maxDistance: 3.4028235e+38
     collisionSphereDistance: 3.4028235e+38
-  m_CapsuleColliders: []
+  m_CapsuleColliders:
+  - {fileID: 1906676445}
   m_SphereColliders: []
 --- !u!137 &1312505428
 SkinnedMeshRenderer:
@@ -34939,7 +34943,8 @@ Cloth:
     collisionSphereDistance: 3.4028235e+38
   - maxDistance: 3.4028235e+38
     collisionSphereDistance: 3.4028235e+38
-  m_CapsuleColliders: []
+  m_CapsuleColliders:
+  - {fileID: 1906676445}
   m_SphereColliders: []
 --- !u!137 &1342622237
 SkinnedMeshRenderer:
@@ -46392,6 +46397,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d160104b2f313d54cba709e66b22c9c9, type: 3}
   m_IsPrefabParent: 0
+--- !u!136 &1906676445 stripped
+CapsuleCollider:
+  m_PrefabParentObject: {fileID: 136064155351285044, guid: ea0431410a576f242934c00008a568b6,
+    type: 2}
+  m_PrefabInternal: {fileID: 1155580093}
 --- !u!1001 &1907559986
 Prefab:
   m_ObjectHideFlags: 0
@@ -47410,7 +47420,7 @@ Cloth:
   - maxDistance: 3.4028235e+38
     collisionSphereDistance: 3.4028235e+38
   m_CapsuleColliders:
-  - {fileID: 0}
+  - {fileID: 1906676445}
   m_SphereColliders: []
 --- !u!137 &1941149246
 SkinnedMeshRenderer:

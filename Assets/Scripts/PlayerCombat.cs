@@ -63,4 +63,16 @@ public class PlayerCombat : MonoBehaviour {
 	void SetCountText() {
 		countText.text = health.ToString();
 	}
+
+    public void increaseHealth()
+    {
+        if (health <= 90) health += 10;
+        else health = 100;
+        countText.text = health.ToString();
+    }
+
+    public int returnHealth()
+    {
+        return health;
+    }
 }

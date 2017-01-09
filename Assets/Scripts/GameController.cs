@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour {
 	
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.E)) {
-			GameObject clone = Instantiate(goblinPrefab, new Vector3(-15f, 0, -0), Quaternion.identity);
+			GameObject clone = Instantiate(goblinPrefab, new Vector3(-74f, 3f, 48f), Quaternion.identity);
 		}
 	}
 }

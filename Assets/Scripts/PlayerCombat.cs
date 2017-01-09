@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerCombat : MonoBehaviour {
 
 	private int health = 100;
+	public Text countText;
 
 	private List<GoblinCombat> enemies = new List<GoblinCombat>();
 
@@ -17,6 +19,7 @@ public class PlayerCombat : MonoBehaviour {
 	
 	void Start () {
 		anim = GetComponent<Animator>();
+		SetCountText();
 	}
 
 	public void AddEnemy(GoblinCombat g) {
@@ -33,6 +36,7 @@ public class PlayerCombat : MonoBehaviour {
 		anim.Play("HIT", -1, 0f);
 
 		health -= value;
+		SetCountText();
 
 		if (health < 0) {
 			HandleDeath();
@@ -54,5 +58,9 @@ public class PlayerCombat : MonoBehaviour {
 
 	public bool IsDead() {
 		return isDead;
+	}
+
+	void SetCountText() {
+		countText.text = health.ToString();
 	}
 }

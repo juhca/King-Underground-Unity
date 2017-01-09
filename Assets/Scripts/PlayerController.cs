@@ -102,4 +102,17 @@ public class PlayerController : MonoBehaviour {
 	private bool IsMoving() {
 		return h < -0.1 || h > 0.1 || v < -0.1 || v > 0.1;
 	}
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.name == "fire_crystal3")
+        {
+            var h = GetComponent<PlayerCombat>().returnHealth();
+            if(h != 100)
+            {
+                GetComponent<PlayerCombat>().increaseHealth();
+                collision.gameObject.SetActive(false);
+            }
+        }
+    }
 }

@@ -8,7 +8,7 @@ public class PlayerCombat : MonoBehaviour
 {
     private MusicScript ms;
     private int health = 100;
-    public Text countText;
+    // public Text countText;
 
     private List<GoblinCombat> enemies = new List<GoblinCombat>();
     private int st_sovraznikov = 0;
@@ -19,7 +19,7 @@ public class PlayerCombat : MonoBehaviour
 	private ParticleSystem particles;
 
     private float attackRange = 2.0f;
-    private float attackAngle = 60f;
+    private float attackAngle = 75f;
 
     private bool isDead = false;
     float timer = 5f;
@@ -62,7 +62,7 @@ public class PlayerCombat : MonoBehaviour
         music.Play();
         anim = GetComponent<Animator>();
 		healthBar = GameObject.FindWithTag("healthbar").GetComponent<HealthBar>();
-        SetCountText();
+        // SetCountText();
     }
 
     private void Update()
@@ -215,16 +215,18 @@ public class PlayerCombat : MonoBehaviour
         return isDead;
     }
 
-    private void SetCountText()
-    {
-        countText.text = health.ToString();
-    }
+
+    // private void SetCountText()
+    // {
+    //    countText.text = health.ToString();
+    // }
 
     public void increaseHealth()
     {
         if (health <= 90) health += 10;
         else health = 100;
-        countText.text = health.ToString();
+		healthBar.HandleBar(health);
+		// countText.text = health.ToString();
     }
 
     public int returnHealth()

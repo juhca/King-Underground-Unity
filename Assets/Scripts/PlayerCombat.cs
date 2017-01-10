@@ -18,7 +18,7 @@ public class PlayerCombat : MonoBehaviour
 	private ParticleSystem particles;
 
     private float attackRange = 2.0f;
-    private float attackAngle = 85f;
+    private float attackAngle = 60f;
 
     private bool isDead = false;
     float timer = 5f;
@@ -128,6 +128,7 @@ public class PlayerCombat : MonoBehaviour
     public void OnHit(int value)
     {
         if (isDead) return;
+		if (Random.value < 0.1) return; // miss chance
 
         anim.Play("HIT", -1, 0f);
 		particles.Emit(Random.Range(10, 20));
@@ -191,9 +192,9 @@ public class PlayerCombat : MonoBehaviour
     {
         foreach (GoblinCombat g in enemies.ToArray())
         {
-            if (Vector3.Distance(transform.position, g.transform.position) < attackRange && Vector3.Dot((g.transform.position - transform.position).normalized, transform.forward) > Mathf.Cos(attackAngle))
+            if (Vector3.Distance(transform.position, g.transform.position) < attackRange && Vector3.Angle((g.transform.position - transform.position).normalized, transform.forward) < attackAngle)
             {
-                g.OnHit(15);
+                g.OnHit(Random.Range(30, 50));
             }
         }
     }

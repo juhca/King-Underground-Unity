@@ -54,7 +54,7 @@ public class GoblinCombat : MonoBehaviour {
 
 	public void OnHit(int value) {
 		if (isDead) return;
-		if (mov.GetIsAttack() && Random.value < 0.4) return;
+		if (mov.GetIsAttack() && Random.value < 0.25) return; // miss chance
 
 		anim.Play("HIT", -1, 0f);
 		particles.Emit(Random.Range(10, 20));
@@ -75,7 +75,7 @@ public class GoblinCombat : MonoBehaviour {
 
 	public void HitTarget(bool isNear) {
 		if (isNear) {
-			player.OnHit(5);
+			player.OnHit(Random.Range(1, 7));
 		}
 	}
 

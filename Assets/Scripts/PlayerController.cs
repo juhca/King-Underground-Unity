@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour {
 
 		// Attack
 		if (Input.GetMouseButtonDown(0) && !cbt.IsDead() && Time.timeScale == 1) {
-			transform.rotation = Quaternion.LookRotation(camForward);
+			//transform.rotation = Quaternion.LookRotation(camForward);
 
 			int layer = IsMoving() ? 1 : 0;
             string animationName = "SWORD0" + (int) Random.Range(1, 3);

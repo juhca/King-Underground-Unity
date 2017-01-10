@@ -22,7 +22,7 @@ public class PlayerCombat : MonoBehaviour
     private float attackAngle = 75f;
 
     private bool isDead = false;
-    float timer = 5f;
+    // float timer = 5f;
     // tabela zvokov
     public AudioSource[] sounds;
     public AudioSource WilhelmScream;

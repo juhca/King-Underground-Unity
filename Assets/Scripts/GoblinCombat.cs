@@ -85,7 +85,7 @@ public class GoblinCombat : MonoBehaviour {
         GoblinDeath.Play();
 		anim.Play("DIE", -1, 0f);
 		ctrl.DecreaseGoblinCount();
-		ctrl.SpawnGoblins(1, 2);
+		ctrl.SpawnGoblins(0, 2);
 	}
 
 	public bool IsDead() {

@@ -2544,8 +2544,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 676147346}
   m_AABB:
-    m_Center: {x: -0.016571324, y: 0.0005370405, z: 0.0000058542355}
-    m_Extent: {x: 0.0011787983, y: 0.0011301067, z: 0.0007726753}
+    m_Center: {x: -0.016409088, y: 0.0005370405, z: 0.0000058542355}
+    m_Extent: {x: 0.0013410337, y: 0.0011301067, z: 0.0007726753}
   m_DirtyAABB: 0
 --- !u!1 &136602456 stripped
 GameObject:
@@ -17625,6 +17625,16 @@ Prefab:
     - target: {fileID: 4809229307379642, guid: 1ce8ea0eedcb2444d8c917c9d21b8e5c, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114087806320823004, guid: 1ce8ea0eedcb2444d8c917c9d21b8e5c,
+        type: 2}
+      propertyPath: aggroRange
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114087806320823004, guid: 1ce8ea0eedcb2444d8c917c9d21b8e5c,
+        type: 2}
+      propertyPath: aggroThroughObstacles
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ce8ea0eedcb2444d8c917c9d21b8e5c, type: 2}

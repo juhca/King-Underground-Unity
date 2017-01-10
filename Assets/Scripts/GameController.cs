@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour {
 	
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.E)) {
-			GameObject clone = Instantiate(goblinPrefab, spawnPositions[Random.Range(0, spawnPositions.Length)], Quaternion.identity);
+			Instantiate(goblinPrefab, spawnPositions[Random.Range(0, spawnPositions.Length)], Quaternion.identity);
 		}
 
 		// move door

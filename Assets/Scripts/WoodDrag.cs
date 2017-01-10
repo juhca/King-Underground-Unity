@@ -5,7 +5,7 @@ using UnityEngine;
 public class WoodDrag : MonoBehaviour {
 
 
-    bool didItPlay = false;
+    //bool didItPlay = false;
     private void OnCollisionStay(Collision col)
     {
         if(!GetComponent<AudioSource>().isPlaying)

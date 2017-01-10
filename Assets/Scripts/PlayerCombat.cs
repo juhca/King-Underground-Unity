@@ -34,6 +34,10 @@ public class PlayerCombat : MonoBehaviour
     public AudioSource ManDeath1;
     public AudioSource Music0;
     public AudioSource Music1;
+    public AudioSource Music2;
+    public AudioSource Music3;
+    private AudioSource music;
+    private int musicPlayed = 0;
     void Start()
     {
         /*
@@ -50,24 +54,58 @@ public class PlayerCombat : MonoBehaviour
         ManScream09 = sounds[9];
         ManDeath1 = sounds[10];
         */
+        music = Music0;
+        music.Play();
         anim = GetComponent<Animator>();
         SetCountText();
+    }
+
+    private void Update()
+    {
+        if(!music.isPlaying && musicPlayed != 0 && st_sovraznikov > 0)
+        {
+            if(musicPlayed == 1)
+            {
+                musicPlayed++;
+                music = Music2;
+            }
+            else if(musicPlayed == 2)
+            {
+                musicPlayed++;
+                music = Music3;
+            }
+            else
+            {
+                musicPlayed = 1;
+                music = Music1;
+            }
+            music.Play();
+        }
     }
 
     public void AddEnemy(GoblinCombat g)
     {
         if (st_sovraznikov == 0)
         {
-            Music1.Play();
+            var val = Random.Range(1, 3);
+            if(val == 1)
+            {
+                music = Music1;
+                musicPlayed = 1;
+            }
+            else if(val == 2)
+            {
+                musicPlayed = 2;
+                music = Music2;
+            }
+            else
+            {
+                musicPlayed = 3;
+                music = Music3;
+            }
+            music.Play();
             StartCoroutine(MyMethod());
             Music0.Pause();
-            /*
-            while (Music0.volume != 0)
-            {
-                StartCoroutine(MyMethod());
-                FadeMusic();
-            }*/
-            
         }
         st_sovraznikov = st_sovraznikov + 1;
         enemies.Add(g);
@@ -81,7 +119,7 @@ public class PlayerCombat : MonoBehaviour
         {
             Music0.Play();
             StartCoroutine(MyMethod());
-            Music1.Stop();
+            music.Stop();
         }
     }
     public void OnHit(int value)
@@ -217,6 +255,6 @@ public class PlayerCombat : MonoBehaviour
 
     IEnumerator MyMethod()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
     }
 }

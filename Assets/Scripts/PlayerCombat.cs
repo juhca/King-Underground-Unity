@@ -14,6 +14,9 @@ public class PlayerCombat : MonoBehaviour
     private int st_sovraznikov = 0;
     private Animator anim;
 
+	[SerializeField]
+	private ParticleSystem particles;
+
     private float attackRange = 2.0f;
     private float attackAngle = 85f;
 
@@ -127,6 +130,7 @@ public class PlayerCombat : MonoBehaviour
         if (isDead) return;
 
         anim.Play("HIT", -1, 0f);
+		particles.Emit(Random.Range(10, 20));
 
         health -= value;
         SetCountText();

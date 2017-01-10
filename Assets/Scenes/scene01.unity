@@ -14102,7 +14102,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Nazaj
+  m_Text: Konec igre
 --- !u!222 &637687800
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -31700,7 +31700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336dbabd49633974fb954f00e1c5044f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countText: {fileID: 1376990935}
   particles: {fileID: 544897536}
   sounds:
   - {fileID: 1155580107}
@@ -52392,7 +52391,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1850807025
 MonoBehaviour:
   m_ObjectHideFlags: 0

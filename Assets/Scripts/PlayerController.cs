@@ -105,6 +105,14 @@ public class PlayerController : MonoBehaviour {
 		if (other.tag == "Finish") {
 			Cursor.lockState = CursorLockMode.None;
 			SceneManager.LoadScene("win");
+		} else if (other.gameObject.name == "fire_crystal3") {
+			var h = GetComponent<PlayerCombat>().returnHealth();
+			if (h != 100) {
+				GetComponent<PlayerCombat>().increaseHealth();
+				other.gameObject.SetActive(false);
+
+				StartCoroutine(RespawnCrystals(other.gameObject, 30.0f)); // schedule respawn
+			}
 		}
 	}
 
@@ -112,7 +120,8 @@ public class PlayerController : MonoBehaviour {
 		return h < -0.1 || h > 0.1 || v < -0.1 || v > 0.1;
 	}
 
-    private void OnCollisionEnter(Collision collision)
+	/*
+    private void OnTriggerEnter(Collider collision)
     {
         if(collision.gameObject.name == "fire_crystal3")
         {
@@ -121,7 +130,16 @@ public class PlayerController : MonoBehaviour {
             {
                 GetComponent<PlayerCombat>().increaseHealth();
                 collision.gameObject.SetActive(false);
+
+				StartCoroutine(RespawnCrystals(collision.gameObject, 30.0f)); // schedule respawn
             }
         }
     }
+	*/
+
+	IEnumerator RespawnCrystals(GameObject crystal, float delay) {
+		yield return new WaitForSeconds(delay);
+
+		crystal.SetActive(true);
+	}
 }

@@ -44,14 +44,13 @@ public class PlayerController : MonoBehaviour {
 
 		anim = GetComponent<Animator>();
 
-		Cursor.lockState = CursorLockMode.Locked;
-
 		cbt = GetComponent<PlayerCombat>();
 	}
 	
 	void Update () {
 
-		if (Input.GetMouseButtonDown(0) && !cbt.IsDead()) {
+		// Attack
+		if (Input.GetMouseButtonDown(0) && !cbt.IsDead() && Time.timeScale == 1) {
 			transform.rotation = Quaternion.LookRotation(camForward);
 
 			int layer = IsMoving() ? 1 : 0;

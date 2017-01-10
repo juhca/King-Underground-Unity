@@ -18,6 +18,8 @@ public class GameController : MonoBehaviour {
 	private int maxGoblins = 15;
 
 	void Start () {
+		Cursor.lockState = CursorLockMode.Locked;
+
 		doorEndY = door.position.y - 3.13f;
 
 		spawnPositions[0] = new Vector3(-50f, 2.76f, 23f);

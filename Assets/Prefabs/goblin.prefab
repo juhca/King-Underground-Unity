@@ -2357,6 +2357,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86da7a56f885445409195b7eb85eb15a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aggroRange: 60
+  aggroThroughObstacles: 1
 --- !u!114 &114464974882265908
 MonoBehaviour:
   m_ObjectHideFlags: 1

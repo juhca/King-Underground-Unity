@@ -42,6 +42,7 @@ public class LeverController : MonoBehaviour {
 		if (transform.position.y < endY) {
 			isFinished = true;
 			ctrl.LeverDown();
+			ctrl.SpawnGoblins(4, 8);
 		}
 	}
 }

@@ -7,6 +7,7 @@ public class GoblinCombat : MonoBehaviour {
 	private PlayerCombat player;
 	private Animator anim;
 	private GoblinMovement mov;
+	private GameController ctrl;
 
 	private int health = 100;
 
@@ -29,6 +30,7 @@ public class GoblinCombat : MonoBehaviour {
 		player = GameObject.FindWithTag("Player").GetComponent<PlayerCombat>();
 		anim = GetComponent<Animator>();
 		mov = GetComponent<GoblinMovement>();
+		ctrl = GameObject.FindWithTag("GameController").GetComponent<GameController>();
 	}
 
 	public void EnterCombat() {
@@ -75,6 +77,8 @@ public class GoblinCombat : MonoBehaviour {
 		isDead = true;
         GoblinDeath.Play();
 		anim.Play("DIE", -1, 0f);
+		ctrl.DecreaseGoblinCount();
+		ctrl.SpawnGoblins(1, 2);
 	}
 
 	public bool IsDead() {

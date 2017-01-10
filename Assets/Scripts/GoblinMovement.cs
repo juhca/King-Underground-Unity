@@ -15,7 +15,7 @@ public class GoblinMovement : MonoBehaviour {
 	private Vector3 direction; // to target
 
 	private bool isAggro = false; // is near target
-	private float aggroRange = 10.0f; // acquire target range
+	public float aggroRange = 60.0f; // acquire target range
 	private float deaggroRange = 25.0f; // lose target range
 	private float attackRange = 1.5f;
 
@@ -35,6 +35,9 @@ public class GoblinMovement : MonoBehaviour {
 	private bool isAttack = false; // is in attack animation
 	private float attackDelay = 2.0f; // delay betewen attacks in seconds
 	private float attackDelayTime; // time of end of last attack
+
+	private bool isFirst = true; // is first attack cycle
+	public bool aggroThroughObstacles = true;
 	
 	void Start () {
 		target = GameObject.FindWithTag("Player").GetComponent<Transform>();
@@ -73,12 +76,13 @@ public class GoblinMovement : MonoBehaviour {
 	private void AggressiveAction() {
 		isReturn = false;
 
-		if (!TargetInRange(deaggroRange)) {
+		if (!TargetInRange(deaggroRange) && !isFirst) {
 			isAggro = false;
 			isReturn = true;
 			agent.SetDestination(startPosition);
 			cbt.LeaveCombat();
 		} else if (TargetInRange(attackRange)) {
+			isFirst = false;
 			AttackAction();		
 			agent.Stop();
 			isRotate = true;
@@ -100,14 +104,15 @@ public class GoblinMovement : MonoBehaviour {
 	}
 
 	private void CheckAggro() {
-		if (TargetInRange(aggroRange) && Physics.Raycast(transform.position + rayOffset, direction, out hit, aggroRange + 1)) {
-			isAggro = hit.transform.tag == playerTag;
+		if (TargetInRange(aggroRange) && (aggroThroughObstacles || Physics.Raycast(transform.position + rayOffset, direction, out hit, aggroRange + 1))) {
+			isAggro = aggroThroughObstacles || hit.transform.tag == playerTag;
 
 			if (isAggro) {
 				cbt.EnterCombat();
 			}
 		} else if (isReturn && Vector3.Distance(transform.position, startPosition) < returnDistanceThreshold) {
 			agent.Stop();
+			isFirst = true;
 			isReturn = false;
 		}
 	}

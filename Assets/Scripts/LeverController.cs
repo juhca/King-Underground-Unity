@@ -6,6 +6,8 @@ public class LeverController : MonoBehaviour {
 
 	public Transform target;
 
+	private GameController ctrl;
+
 	private float distance;
 
 	private float initialY; // height at start
@@ -17,6 +19,8 @@ public class LeverController : MonoBehaviour {
 	private bool isFinished = false;
 	
 	void Start () {
+		ctrl = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+
 		initialY = transform.position.y;
 		endY = initialY - 0.31f; // height of hole
 	}
@@ -37,6 +41,7 @@ public class LeverController : MonoBehaviour {
 		transform.Translate(0, 0, -leverSpeed * Time.deltaTime);
 		if (transform.position.y < endY) {
 			isFinished = true;
+			ctrl.LeverDown();
 		}
 	}
 }

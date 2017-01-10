@@ -9,6 +9,9 @@ public class GoblinCombat : MonoBehaviour {
 	private GoblinMovement mov;
 	private GameController ctrl;
 
+	[SerializeField]
+	private ParticleSystem particles;
+
 	private int health = 100;
 
 	private int idx; // index in player enemies list
@@ -54,7 +57,10 @@ public class GoblinCombat : MonoBehaviour {
 		if (mov.GetIsAttack() && Random.value < 0.4) return;
 
 		anim.Play("HIT", -1, 0f);
+		particles.Emit(Random.Range(10, 20));
+
 		mov.SetAttack(true);
+
 
 		health -= value;
 

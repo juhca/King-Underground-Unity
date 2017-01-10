@@ -758,7 +758,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &623723934
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1487,7 +1487,7 @@ MonoBehaviour:
   m_Text: "Premagati vse ovire in gobline ter pobegniti iz jame.\n\nPremik v \u0161tirih
     osnovnih smereh: W, A, S, D.\nPremik in obrat s premikanjem mi\u0161ke s pritisnjenim
     desnim gumbom ter pritiskom osnovne smeri.\nNapad s pritiskom leve mi\u0161kine
-    tipke.\nUpravljanje s stikali s tipko E.\n\u010Ce potrebujete po\u010Ditek od
+    tipke.\nUpravljanje s stikali s tipko F.\n\u010Ce potrebujete po\u010Ditek od
     igre, lahko pritisnete ESC za premor."
 --- !u!222 &1096966024
 CanvasRenderer:

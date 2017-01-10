@@ -6,19 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCombat : MonoBehaviour
 {
-
+    private MusicScript ms;
     private int health = 100;
     public Text countText;
 
     private List<GoblinCombat> enemies = new List<GoblinCombat>();
-
+    private int st_sovraznikov = 0;
     private Animator anim;
 
     private float attackRange = 2.0f;
     private float attackAngle = 85f;
 
     private bool isDead = false;
-
+    float timer = 5f;
     // tabela zvokov
     public AudioSource[] sounds;
     public AudioSource WilhelmScream;
@@ -32,11 +32,13 @@ public class PlayerCombat : MonoBehaviour
     public AudioSource ManScream08;
     public AudioSource ManScream09;
     public AudioSource ManDeath1;
-
+    public AudioSource Music0;
+    public AudioSource Music1;
     void Start()
     {
+        /*
         sounds = GetComponents<AudioSource>();
-        /*WilhelmScream = sounds[0];
+        WilhelmScream = sounds[0];
         ManScream01 = sounds[1];
         ManScream02 = sounds[2];
         ManScream03 = sounds[3];
@@ -46,22 +48,42 @@ public class PlayerCombat : MonoBehaviour
         ManScream07 = sounds[7];
         ManScream08 = sounds[8];
         ManScream09 = sounds[9];
-        ManDeath1 = sounds[10];*/
-
+        ManDeath1 = sounds[10];
+        */
         anim = GetComponent<Animator>();
         SetCountText();
     }
 
     public void AddEnemy(GoblinCombat g)
     {
+        if (st_sovraznikov == 0)
+        {
+            Music1.Play();
+            StartCoroutine(MyMethod());
+            Music0.Pause();
+            /*
+            while (Music0.volume != 0)
+            {
+                StartCoroutine(MyMethod());
+                FadeMusic();
+            }*/
+            
+        }
+        st_sovraznikov = st_sovraznikov + 1;
         enemies.Add(g);
     }
 
     public void RemoveEnemy(GoblinCombat g)
     {
+        st_sovraznikov = st_sovraznikov - 1;
         enemies.Remove(g);
+        if (st_sovraznikov == 0)
+        {
+            Music0.Play();
+            StartCoroutine(MyMethod());
+            Music1.Stop();
+        }
     }
-
     public void OnHit(int value)
     {
         if (isDead) return;
@@ -167,5 +189,34 @@ public class PlayerCombat : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("lost");
+    }
+
+    void FadeMusic()
+    {
+        if (Music0.volume > 0)
+        {
+            Music0.volume -= 0.015f;
+        }
+    }
+
+    /*
+    public static IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
+
+            yield return null;
+        }
+
+        audioSource.Stop();
+        audioSource.volume = startVolume;
+    }*/
+
+    IEnumerator MyMethod()
+    {
+        yield return new WaitForSeconds(1);
     }
 }

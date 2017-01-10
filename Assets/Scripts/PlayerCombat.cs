@@ -13,6 +13,7 @@ public class PlayerCombat : MonoBehaviour
     private List<GoblinCombat> enemies = new List<GoblinCombat>();
     private int st_sovraznikov = 0;
     private Animator anim;
+	private HealthBar healthBar;
 
 	[SerializeField]
 	private ParticleSystem particles;
@@ -60,11 +61,13 @@ public class PlayerCombat : MonoBehaviour
         music = Music0;
         music.Play();
         anim = GetComponent<Animator>();
+		healthBar = GameObject.FindWithTag("healthbar").GetComponent<HealthBar>();
         SetCountText();
     }
 
     private void Update()
     {
+
         if(!music.isPlaying && musicPlayed != 0 && st_sovraznikov > 0)
         {
             if(musicPlayed == 1)
@@ -134,9 +137,10 @@ public class PlayerCombat : MonoBehaviour
 		particles.Emit(Random.Range(10, 20));
 
         health -= value;
-        SetCountText();
+		//SetCountText();
+		healthBar.HandleBar(health);
 
-        if (health <= 0)
+		if (health <= 0)
         {
             HandleDeath();
         }

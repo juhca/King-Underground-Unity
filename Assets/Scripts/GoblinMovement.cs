@@ -33,7 +33,7 @@ public class GoblinMovement : MonoBehaviour {
 	private Vector3 rayOffset = new Vector3(0, 0.5f, 0);
 
 	private bool isAttack = false; // is in attack animation
-	private float attackDelay = 2.0f; // delay betewen attacks in seconds
+	private float attackDelay = 1.0f; // delay betewen attacks in seconds
 	private float attackDelayTime; // time of end of last attack
 
 	private bool isFirst = true; // is first attack cycle
@@ -119,6 +119,10 @@ public class GoblinMovement : MonoBehaviour {
 
 	private bool TargetInRange(float range) {
 		return distance < range;
+	}
+
+	public bool GetIsAttack() {
+		return isAttack;
 	}
 
 	// ANIMATION ...

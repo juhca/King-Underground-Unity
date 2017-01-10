@@ -56,7 +56,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: beb6ff9ab8dd79c49b93df30f9aeaaa8, type: 3}
+    m_Motion: {fileID: 7400000, guid: a34f7e194c40e7d48baa68707c557384, type: 3}
     m_Threshold: 0
     m_Position: {x: 0, y: 1}
     m_TimeScale: 1
@@ -64,7 +64,7 @@ BlendTree:
     m_DirectBlendParameter: inputH
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: ae2fe1971cf9c9c4d9419ff72fe421bb, type: 3}
+    m_Motion: {fileID: 7400000, guid: 8ca542e9cc71cfd46844185598d2cb0b, type: 3}
     m_Threshold: 0.2
     m_Position: {x: -1, y: 1}
     m_TimeScale: 1
@@ -72,8 +72,16 @@ BlendTree:
     m_DirectBlendParameter: inputH
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: acc13c9bced48684a8ceb31b0ec95e31, type: 3}
+    m_Motion: {fileID: 7400000, guid: 634c5d86662df354ca9a5a67351fd071, type: 3}
     m_Threshold: 0.4
+    m_Position: {x: 1, y: 1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: inputH
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: acc13c9bced48684a8ceb31b0ec95e31, type: 3}
+    m_Threshold: 0.6
     m_Position: {x: 0, y: -1}
     m_TimeScale: 1
     m_CycleOffset: 0
@@ -81,7 +89,7 @@ BlendTree:
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 107cfb8b00ca12541a0a063b643c1371, type: 3}
-    m_Threshold: 0.6
+    m_Threshold: 0.8
     m_Position: {x: -1, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
@@ -89,16 +97,8 @@ BlendTree:
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 0b90e07c13f5b7b448f308a0eef850c2, type: 3}
-    m_Threshold: 0.8
-    m_Position: {x: 1, y: 0}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: inputH
-    m_Mirror: 0
-  - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 3046854ec5834df4aae86a3d1506727c, type: 3}
     m_Threshold: 1
-    m_Position: {x: 1, y: 1}
+    m_Position: {x: 1, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: inputH

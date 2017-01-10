@@ -38,7 +38,7 @@ public class PlayerCombat : MonoBehaviour {
 		health -= value;
 		SetCountText();
 
-		if (health < 0) {
+		if (health <= 0) {
 			HandleDeath();
 		}
 	}

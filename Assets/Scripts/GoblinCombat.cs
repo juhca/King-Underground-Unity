@@ -51,13 +51,14 @@ public class GoblinCombat : MonoBehaviour {
 
 	public void OnHit(int value) {
 		if (isDead) return;
+		if (mov.GetIsAttack() && Random.value < 0.4) return;
 
 		anim.Play("HIT", -1, 0f);
 		mov.SetAttack(true);
 
 		health -= value;
 
-		if (health < 0) {
+		if (health <= 0) {
 			HandleDeath();
 		}
         else

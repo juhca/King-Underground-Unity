@@ -52,6 +52,8 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 
 		if (Input.GetMouseButtonDown(0) && !cbt.IsDead()) {
+			transform.rotation = Quaternion.LookRotation(camForward);
+
 			int layer = IsMoving() ? 1 : 0;
             string animationName = "SWORD0" + (int) Random.Range(1, 3);
             if(animationName == "SWORD01")

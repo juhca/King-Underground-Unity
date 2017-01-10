@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerCombat : MonoBehaviour {
 
@@ -60,19 +61,22 @@ public class PlayerCombat : MonoBehaviour {
 		return isDead;
 	}
 
-	void SetCountText() {
+	private void SetCountText() {
 		countText.text = health.ToString();
 	}
 
-    public void increaseHealth()
-    {
+    public void increaseHealth() {
         if (health <= 90) health += 10;
         else health = 100;
         countText.text = health.ToString();
     }
 
-    public int returnHealth()
-    {
+    public int returnHealth() {
         return health;
     }
+
+	public void DeadEnd() {
+		Cursor.lockState = CursorLockMode.None;
+		SceneManager.LoadScene("lost");
+	}
 }

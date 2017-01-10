@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -97,6 +98,13 @@ public class PlayerController : MonoBehaviour {
 
 				rb.velocity = downVelocity + move;
 			}
+		}
+	}
+
+	private void OnTriggerEnter(Collider other) {
+		if (other.tag == "Finish") {
+			Cursor.lockState = CursorLockMode.None;
+			SceneManager.LoadScene("win");
 		}
 	}
 
